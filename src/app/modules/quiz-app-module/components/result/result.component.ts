@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class ResultComponent implements OnInit {
   questionList: Question[];
   totalCorrectAnswer: Number[];
-  displayAnswer: Boolean = true;
+  displayAnswer: boolean = true;
 
   constructor(private router: Router) {
     if (

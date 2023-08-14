@@ -17,9 +17,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./question.component.scss'],
 })
 export class QuestionComponent implements OnInit, OnChanges, AfterViewInit {
-  @Input() displayAnswer: Boolean;
+  @Input() displayAnswer: boolean;
   @Input() questionList: Question[];
-  @Input() totalCorrectAnswer: Number[];
+  @Input() totalCorrectAnswer: number[];
   totalAnsweredQuestion: number = 0;
   @ViewChild('finalResultText') finalResultText: ElementRef;
 
