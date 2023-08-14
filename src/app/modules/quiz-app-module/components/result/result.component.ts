@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ResultComponent implements OnInit {
   questionList: Question[];
-  totalCorrectAnswer: Number[];
+  totalCorrectAnswer: number[];
   displayAnswer: boolean = true;
 
   constructor(private router: Router) {
@@ -16,9 +16,9 @@ export class ResultComponent implements OnInit {
       localStorage.hasOwnProperty('question') &&
       localStorage.hasOwnProperty('totalCorrectAnswer')
     ) {
-      this.questionList = JSON.parse(localStorage.getItem('question') || '[]');
+      this.questionList = JSON.parse(localStorage.getItem('question'));
       this.totalCorrectAnswer = JSON.parse(
-        localStorage.getItem('totalCorrectAnswer') || '[]'
+        localStorage.getItem('totalCorrectAnswer')
       );
     } else {
       this.router.navigateByUrl('/');
