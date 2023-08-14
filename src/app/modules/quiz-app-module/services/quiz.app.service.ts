@@ -51,15 +51,15 @@ export class QuizAppService {
   }
 
   private randomOrderArr(arr: string[]) {
-    const shuffledArray = [...arr];
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const shuffledArr = [...arr];
+    for (let i = shuffledArr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [shuffledArray[i], shuffledArray[j]] = [
-        shuffledArray[j],
-        shuffledArray[i],
+      [shuffledArr[i], shuffledArr[j]] = [
+        shuffledArr[j],
+        shuffledArr[i],
       ];
     }
-    return shuffledArray;
+    return shuffledArr;
   }
 
   private transformQuestionResponse(response: QuestionResponse): Question[] {

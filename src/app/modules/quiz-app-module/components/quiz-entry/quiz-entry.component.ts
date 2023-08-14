@@ -12,11 +12,11 @@ import { QuizAppService } from '../../services/quiz.app.service';
 
 export class QuizEntryComponent implements OnInit {
   
-  difficultyLevelList: string[];
+  difficultyLevelList: string[]=[];
   questionCategoryList: Category[] = [];
   questionList: Question[] = [];
-  quizForm: FormGroup;
-  displayQuestion: boolean;
+  quizForm!: FormGroup;
+  displayQuestion: boolean=false;
   
   constructor(
     private quizService: QuizAppService,
