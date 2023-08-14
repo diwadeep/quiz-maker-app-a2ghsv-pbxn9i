@@ -28,7 +28,7 @@ export class QuizAppService {
       map((response) => {
         return response.trivia_categories;
       }),
-      catchError(this.handleErrorOnApil)
+      catchError(this.handleErrorOnApis)
     );
   }
 
@@ -46,7 +46,7 @@ export class QuizAppService {
         map((response) => {
           return this.transformQuestionResponse(response);
         }),
-        catchError(this.handleErrorOnApil)
+        catchError(this.handleErrorOnApis)
       );
   }
 
@@ -72,7 +72,7 @@ export class QuizAppService {
     });
   }
 
-  private handleErrorOnApil(error: HttpErrorResponse) {
+  private handleErrorOnApis(error: HttpErrorResponse) {
     console.log(error);
     return throwError('Something went wrong, Please try again after sometime.');
   }
