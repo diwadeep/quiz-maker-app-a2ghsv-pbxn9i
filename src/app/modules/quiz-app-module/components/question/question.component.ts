@@ -21,7 +21,7 @@ export class QuestionComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() questionList!: Question[];
   @Input() totalCorrectAnswer!: number[];
   totalAnsweredQuestion: number = 0;
-  @ViewChild('finalResultText')finalResultText!: ElementRef;
+  @ViewChild('finalResultText') finalResultText!: ElementRef;
 
   constructor(private router: Router) {}
 
@@ -54,7 +54,8 @@ export class QuestionComponent implements OnInit, OnChanges, AfterViewInit {
       }
       this.questionList[i].user_selected_answer = answer;
       if (
-        this.questionList[i].correct_answer == this.questionList[i].user_selected_answer
+        this.questionList[i].correct_answer ==
+        this.questionList[i].user_selected_answer
       ) {
         this.totalCorrectAnswer.push(i);
       } else {

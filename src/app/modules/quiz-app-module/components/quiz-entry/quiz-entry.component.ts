@@ -15,7 +15,7 @@ export class QuizEntryComponent implements OnInit {
   difficultyLevelList: string[]=[];
   questionCategoryList: Category[] = [];
   questionList: Question[] = [];
-  quizForm!: FormGroup;
+  quizForm: FormGroup;
   displayQuestion: boolean=false;
   
   constructor(

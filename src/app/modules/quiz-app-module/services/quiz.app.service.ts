@@ -44,13 +44,13 @@ export class QuizAppService {
       .get<QuestionResponse>(this.questionApiUrl, { params })
       .pipe(
         map((response) => {
-          return this.transformQuestionResponse(response);
+          return this.shuffleAnswers(response);
         }),
         catchError(this.handleErrorOnApis)
       );
   }
 
-  private randomOrderArr(arr: string[]) {
+  private generateRandomArr(arr: string[]) {
     const shuffledArr = [...arr];
     for (let i = shuffledArr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -62,9 +62,9 @@ export class QuizAppService {
     return shuffledArr;
   }
 
-  private transformQuestionResponse(response: QuestionResponse): Question[] {
+  private shuffleAnswers(response: QuestionResponse): Question[] {
     return response.results.map((question) => {
-      question.answer_options = this.randomOrderArr([
+      question.answer_options = this.generateRandomArr([
         ...question.incorrect_answers,
         question.correct_answer,
       ]);
