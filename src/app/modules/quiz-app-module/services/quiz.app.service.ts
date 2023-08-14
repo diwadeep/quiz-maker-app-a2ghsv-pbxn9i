@@ -5,7 +5,6 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../../environment/environment';
-// import { Category, CategoryResponse } from '../models/category';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { Question, QuestionParams, QuestionResponse } from '../models/question';
@@ -14,12 +13,13 @@ import { Category, CategoryResponse } from '../models/category';
 @Injectable({
   providedIn: 'root',
 })
+
 export class QuizAppService {
-  private categoryApiUrl = environment.OPEN_API_URL + 'api_category.php';
-  private questionApiUrl = environment.OPEN_API_URL + 'api.php';
+  private categoryApiUrl: string = environment.OPEN_API_URL + 'api_category.php';
+  private questionApiUrl: string = environment.OPEN_API_URL + 'api.php';
   questionLevels: Array<string> = ['Easy', 'Medium', 'Hard'];
   questionAmountTotal: number = 5;
-  questionType = 'multiple';
+  questionType: string = 'multiple';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -74,7 +74,6 @@ export class QuizAppService {
 
   private handleErrorOnApil(error: HttpErrorResponse) {
     console.log(error);
-    // As per our requirement you can set error message other wise also you can use error object and get error message
     return throwError('Something went wrong, Please try again after sometime.');
   }
 }
