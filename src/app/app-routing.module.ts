@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/' },
-  { path: '', loadChildren: () => import('./modules/quiz-app-module/quiz-app-module.module').then(q => q.QuizModuleModule)}
+  { path: '', loadChildren: () => import('./modules/quiz-app-module/quiz-app-module.module').then(q => q.QuizAppModule)}
 ];
 
 @NgModule({

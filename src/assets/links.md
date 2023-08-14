@@ -1,1 +1,0 @@
-* [Edit this app](https://stackblitz.com/edit/create-a-basic-angular-component)
