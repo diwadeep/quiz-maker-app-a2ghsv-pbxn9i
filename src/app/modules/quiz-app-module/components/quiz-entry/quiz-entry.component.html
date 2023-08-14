@@ -1,0 +1,53 @@
+<div class="main-contain">
+  <div class="quiz-head">QUIZ MAKER</div>
+  <ng-container *ngIf="questionCategoryList && difficultyLevelList">
+    <form [formGroup]="quizForm" name="quizForm" class="quizForm">
+      <div>
+        <select
+          formControlName="categorySelect"
+          id="categorySelect"
+          name="categorySelect"
+          class="form-control drop-down-primary"
+        >
+          <option value="">Select a category</option>
+          <option *ngFor="let record of questionCategoryList" [value]="record.id">
+            {{ record.name }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <select
+          formControlName="difficultyLevelSelect"
+          id="difficultyLevelSelect"
+          name="difficultyLevelSelect"
+          class="form-control drop-down-primary"
+        >
+          <option value="">Select Difficulty</option>
+          <option *ngFor="let record of difficultyLevelList" [value]="record">
+            {{ record }}
+          </option>
+        </select>
+      </div>
+      <button
+        class="btn-primary"
+        type="submit"
+        name="createBtn"
+        id="createBtn"
+        [disabled]="quizForm.invalid"
+        (click)="onSubmitQuizForm()"
+      >
+        Create
+      </button>
+    </form>
+  </ng-container>
+
+  <ng-container *ngIf="displayQuestion">
+    <div class="questionList">
+      <app-question
+        [displayAnswer]="false"
+        [questionList]="questionList"
+        [totalCorrectAnswer]="[]"
+      ></app-question>
+    </div>
+  </ng-container>
+</div>

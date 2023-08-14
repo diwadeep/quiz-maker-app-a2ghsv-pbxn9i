@@ -1,0 +1,54 @@
+<div class="question-list">
+  <ng-container *ngIf="displayAnswer && questionList">
+    <div class="result-head">RESULTS</div>
+  </ng-container>
+
+  <div *ngFor="let record of questionList; let ind = index">
+    <div class="question" [innerHTML]="record.question"></div>
+    <div class="question-answer">
+      <button
+        class="btn-answer"
+        [ngClass]="{
+          'btn-answer-hover': displayAnswer == false,
+          'selected-answer-right':
+            (answer == record.user_selected_answer &&
+              displayAnswer === false) ||
+            (answer == record.correct_answer &&
+              record.user_selected_answer == record.correct_answer &&
+              displayAnswer == true) ||
+            (answer == record.correct_answer && displayAnswer),
+          'selected-answer-wrong':
+            record.user_selected_answer == answer &&
+            record.correct_answer != answer &&
+            displayAnswer
+        }"
+        *ngFor="let answer of record.answer_options"
+        id="{{ ind }}"
+        (click)="selectAnswer(ind, answer)"
+        [innerHTML]="answer"
+      ></button>
+    </div>
+  </div>
+
+  <ng-container
+    *ngIf="
+      !displayAnswer &&
+      totalAnsweredQuestion > 0 &&
+      totalAnsweredQuestion == questionList.length
+    "
+  >
+    <button type="button" class="btn-question-submit" (click)="submitAnwser()">
+      Submit
+    </button>
+  </ng-container>
+
+  <ng-container *ngIf="displayAnswer && questionList">
+    <div class="result-text" #finalResultText>
+      Your scored {{ totalCorrectAnswer.length }} out of
+      {{ questionList.length }}
+    </div>
+    <button type="button" class="btn-create-quiz" (click)="createNewQuiz()">
+      Create a new quiz
+    </button>
+  </ng-container>
+</div>
