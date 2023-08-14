@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./result.component.scss'],
 })
 export class ResultComponent implements OnInit {
-  questionList!: Question[];
-  totalCorrectAnswer!: Number[];
-  showAnswer: Boolean = true;
+  questionList: Question[];
+  totalCorrectAnswer: Number[];
+  displayAnswer: Boolean = true;
 
   constructor(private router: Router) {
     if (
