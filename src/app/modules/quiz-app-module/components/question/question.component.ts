@@ -58,7 +58,8 @@ export class QuestionComponent implements OnInit, OnChanges, AfterViewInit {
         this.questionList[i].user_selected_answer
       ) {
         this.totalCorrectAnswer.push(i);
-      } else {
+      } 
+      else {
         const indexKey = this.totalCorrectAnswer.indexOf(i);
         if (indexKey > -1) {
           this.totalCorrectAnswer.splice(indexKey, 1);
@@ -68,6 +69,7 @@ export class QuestionComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   createNewQuiz() {
+    this.totalCorrectAnswer = [];
     localStorage.removeItem('question');
     localStorage.removeItem('totalCorrectAnswer');
     this.router.navigate(['']);
