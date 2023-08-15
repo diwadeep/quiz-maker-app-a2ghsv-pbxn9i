@@ -44,7 +44,7 @@ export class QuizAppService {
       .get<QuestionResponse>(this.questionApiUrl, { params })
       .pipe(
         map((response) => {
-          return this.shuffleAnswers(response);
+          return this.arrangeResponse(response);
         }),
         catchError(this.handleErrorOnApis)
       );
@@ -62,7 +62,7 @@ export class QuizAppService {
     return shuffledArr;
   }
 
-  private shuffleAnswers(response: QuestionResponse): Question[] {
+  private arrangeResponse(response: QuestionResponse): Question[] {
     return response.results.map((question) => {
       question.answer_options = this.generateRandomArr([
         ...question.incorrect_answers,
