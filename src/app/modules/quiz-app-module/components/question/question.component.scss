@@ -57,7 +57,7 @@
   width: 300px;
   display: flex;
   justify-content: center;
-  border: 1px solid gray;
+  border: 1px solid #6c757d;
 }
 
 .result-head {
@@ -76,12 +76,12 @@
 }
 
 .btn-create-quiz {
-  background-color: gray;
+  background-color: #6c757d;
   padding: 10px;
   margin-top: 25px;
   width: 450px;
   cursor: pointer;
-  border: 1px solid gray;
+  border: 1px solid #6c757d;
   border-radius: 10px;
   color: #ffffff;
   font-weight: 500;
